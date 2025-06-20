@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.grpABMGrupo = new System.Windows.Forms.GroupBox();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -208,7 +209,7 @@
             this.grpListadoGastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.grpListadoGastos.Location = new System.Drawing.Point(12, 219);
             this.grpListadoGastos.Name = "grpListadoGastos";
-            this.grpListadoGastos.Size = new System.Drawing.Size(548, 255);
+            this.grpListadoGastos.Size = new System.Drawing.Size(548, 227);
             this.grpListadoGastos.TabIndex = 1;
             this.grpListadoGastos.TabStop = false;
             this.grpListadoGastos.Text = "Listado de últimos gastos";
@@ -219,7 +220,7 @@
             this.lstGastos.ItemHeight = 17;
             this.lstGastos.Location = new System.Drawing.Point(28, 32);
             this.lstGastos.Name = "lstGastos";
-            this.lstGastos.Size = new System.Drawing.Size(489, 208);
+            this.lstGastos.Size = new System.Drawing.Size(489, 157);
             this.lstGastos.TabIndex = 0;
             this.lstGastos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lstGastos_MouseClick);
             this.lstGastos.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstGastos_MouseDoubleClick);
@@ -237,9 +238,9 @@
             this.grpFiltradoAnalisis.Controls.Add(this.cmbCategoriaFiltrado);
             this.grpFiltradoAnalisis.Controls.Add(this.lblCategor);
             this.grpFiltradoAnalisis.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.grpFiltradoAnalisis.Location = new System.Drawing.Point(12, 480);
+            this.grpFiltradoAnalisis.Location = new System.Drawing.Point(12, 452);
             this.grpFiltradoAnalisis.Name = "grpFiltradoAnalisis";
-            this.grpFiltradoAnalisis.Size = new System.Drawing.Size(548, 157);
+            this.grpFiltradoAnalisis.Size = new System.Drawing.Size(548, 185);
             this.grpFiltradoAnalisis.TabIndex = 3;
             this.grpFiltradoAnalisis.TabStop = false;
             this.grpFiltradoAnalisis.Text = "Filtrado y Análisis";
@@ -265,7 +266,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnBuscar.Location = new System.Drawing.Point(219, 120);
+            this.btnBuscar.Location = new System.Drawing.Point(219, 135);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(115, 31);
             this.btnBuscar.TabIndex = 11;
@@ -277,7 +278,7 @@
             // 
             this.lblFiltrarDescr.AutoSize = true;
             this.lblFiltrarDescr.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.lblFiltrarDescr.Location = new System.Drawing.Point(8, 86);
+            this.lblFiltrarDescr.Location = new System.Drawing.Point(8, 98);
             this.lblFiltrarDescr.Name = "lblFiltrarDescr";
             this.lblFiltrarDescr.Size = new System.Drawing.Size(147, 17);
             this.lblFiltrarDescr.TabIndex = 15;
@@ -285,7 +286,7 @@
             // 
             // txtDescripcionFiltrado
             // 
-            this.txtDescripcionFiltrado.Location = new System.Drawing.Point(170, 83);
+            this.txtDescripcionFiltrado.Location = new System.Drawing.Point(170, 95);
             this.txtDescripcionFiltrado.Name = "txtDescripcionFiltrado";
             this.txtDescripcionFiltrado.Size = new System.Drawing.Size(359, 23);
             this.txtDescripcionFiltrado.TabIndex = 11;
@@ -347,8 +348,9 @@
             this.Controls.Add(this.grpFiltradoAnalisis);
             this.Controls.Add(this.grpListadoGastos);
             this.Controls.Add(this.grpABMGrupo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "GastApp";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);

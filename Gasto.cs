@@ -6,14 +6,17 @@ using System.Threading.Tasks;
 
 namespace GestorGastosApp
 {
-    internal class Gasto
+   public class Gasto
     {
         private static int ultimoID = 0;
         public int ID { get; set; }
+        public DateTime Fecha { get; set; }
+        
+        public string Descripcion { get; set; }
         public float Monto { get; set; }
         public string Categoria { get; set; }
-        public DateTime Fecha { get; set; }
-        public string Descripcion {  get; set; }
+
+
 
         public Gasto() { }
         public Gasto(float monto, string categoria, DateTime fecha, string descripcion)

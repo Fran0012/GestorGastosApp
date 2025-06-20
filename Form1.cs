@@ -286,7 +286,9 @@ namespace GestorGastosApp
         {
             string msj = "";
             float total = 0;
-            if (cmbCategoriaFiltrado.SelectedIndex == -1 && string.IsNullOrEmpty(txtDescripcionFiltrado.Text)) 
+            if ((cmbCategoriaFiltrado.SelectedIndex == -1 || cmbCategoriaFiltrado.Text == "Todos") 
+                && 
+                string.IsNullOrEmpty(txtDescripcionFiltrado.Text)) 
             {
                 List<Gasto> gastosbuscados = gastos.FindAll(g => g.Fecha.Date >= dtpDesde.Value.Date && g.Fecha.Date <= dtpHasta.Value.Date);
                 if (gastosbuscados.Count <= 0)
@@ -304,14 +306,19 @@ namespace GestorGastosApp
 
                         total += gastito.Monto;
                     }
-                    MessageBox.Show($"TOTAL GASTADO: ${total} " + Environment.NewLine + "DETALLE: " + Environment.NewLine + msj);
+                    //MessageBox.Show($"Total Gastado:"  + Environment.NewLine + $"${total}"  + Environment.NewLine + "Detalle: " + Environment.NewLine + msj);
+                    gastosbuscados = gastosbuscados.OrderByDescending(g => g.Fecha).ThenBy(g => g.Monto).ToList();
+                    Resultados ventana = new Resultados(gastosbuscados, total, dtpDesde.Value, dtpHasta.Value);
+                    ventana.ShowDialog(); // Bloquea hasta que se cierre
+
                 }
-                
+
             }
             else if (string.IsNullOrEmpty(txtDescripcionFiltrado.Text))
             {
                 List<Gasto> gastosbuscados = gastos.FindAll(g => g.Fecha.Date >= dtpDesde.Value.Date && g.Fecha.Date <= dtpHasta.Value.Date 
                 && g.Categoria == cmbCategoriaFiltrado.Text);
+                
                 if (gastosbuscados.Count <= 0)
                 {
                     msj = "No se encontraron gastos con los filtros elegidos";
@@ -326,8 +333,13 @@ namespace GestorGastosApp
                         Gasto gastito = BuscarGasto(int.Parse(vector[0]));
 
                         total += gastito.Monto;
+                        
                     }
-                    MessageBox.Show($"TOTAL GASTADO EN {cmbCategoriaFiltrado.Text}: ${total} " + Environment.NewLine + "DETALLE: " + Environment.NewLine + msj);
+                    //MessageBox.Show($"Total Gastado en {cmbCategoriaFiltrado.Text}: " + Environment.NewLine +  $"${total} " + Environment.NewLine + "Detalle: " + Environment.NewLine + msj);
+                    gastosbuscados = gastosbuscados.OrderByDescending(g => g.Fecha).ThenBy(g => g.Monto).ToList();
+                    Resultados ventana = new Resultados(gastosbuscados, total, dtpDesde.Value, dtpHasta.Value);
+                    ventana.ShowDialog(); // Bloquea hasta que se cierre
+                    
                 }
             }
             else if (cmbCategoriaFiltrado.SelectedIndex == -1 && !string.IsNullOrEmpty(txtDescripcionFiltrado.Text))
@@ -350,7 +362,11 @@ namespace GestorGastosApp
 
                         total += gastito.Monto;
                     }
-                    MessageBox.Show($"TOTAL GASTADO EN {cmbCategoriaFiltrado.Text}: ${total} " + Environment.NewLine + "DETALLE: " + Environment.NewLine + msj);
+                    //MessageBox.Show($"Total Gastado en {txtDescripcionFiltrado.Text.ToUpper()}:" + Environment.NewLine + $"${total}" + Environment.NewLine + "Detalle: " + Environment.NewLine + msj);
+                    gastosbuscados = gastosbuscados.OrderByDescending(g => g.Fecha).ThenBy(g => g.Monto).ToList();
+                    Resultados ventana = new Resultados(gastosbuscados, total, dtpDesde.Value, dtpHasta.Value);
+                    ventana.ShowDialog(); // Bloquea hasta que se cierre
+
                 }
             }
             else
@@ -373,7 +389,11 @@ namespace GestorGastosApp
 
                         total += gastito.Monto;
                     }
-                    MessageBox.Show($"TOTAL GASTADO EN {cmbCategoriaFiltrado.Text}: ${total} " + Environment.NewLine + "DETALLE: " + Environment.NewLine + msj);
+                    //MessageBox.Show($"Total gastado en {cmbCategoriaFiltrado.Text}: ${total} " + Environment.NewLine + "DETALLE: " + Environment.NewLine + msj);
+                    gastosbuscados = gastosbuscados.OrderByDescending(g => g.Fecha).ThenBy(g => g.Monto).ToList();
+                    Resultados ventana = new Resultados(gastosbuscados, total, dtpDesde.Value, dtpHasta.Value);
+                    ventana.ShowDialog(); // Bloquea hasta que se cierre
+
                 }
             }
         }
