@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Resultados));
             this.btnCerrar = new System.Windows.Forms.Button();
             this.dgvResultados = new System.Windows.Forms.DataGridView();
             this.lblResultados = new System.Windows.Forms.Label();
@@ -42,7 +43,7 @@
             // 
             this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnCerrar.Location = new System.Drawing.Point(267, 406);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(153, 41);
             this.btnCerrar.TabIndex = 10;
@@ -54,7 +55,7 @@
             // 
             this.dgvResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultados.Location = new System.Drawing.Point(20, 85);
-            this.dgvResultados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvResultados.Margin = new System.Windows.Forms.Padding(4);
             this.dgvResultados.Name = "dgvResultados";
             this.dgvResultados.Size = new System.Drawing.Size(660, 290);
             this.dgvResultados.TabIndex = 11;
@@ -120,7 +121,8 @@
             this.Controls.Add(this.dgvResultados);
             this.Controls.Add(this.btnCerrar);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Resultados";
             this.Text = "Resultados";
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();

@@ -198,7 +198,8 @@ namespace GestorGastosApp
         
         private void CargarGastos()
         {
-            string path = "C:\\Users\\diias\\OneDrive\\Documentos\\listaAlumnos\\Gastos.txt";
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "gastos.txt");
+
             FileInfo fi = new FileInfo(path);
 
             if (!fi.Exists)
@@ -342,7 +343,7 @@ namespace GestorGastosApp
                     
                 }
             }
-            else if (cmbCategoriaFiltrado.SelectedIndex == -1 && !string.IsNullOrEmpty(txtDescripcionFiltrado.Text))
+            else if ((cmbCategoriaFiltrado.SelectedIndex == -1 || cmbCategoriaFiltrado.Text == "Todos") && !string.IsNullOrEmpty(txtDescripcionFiltrado.Text))
             {
                 string descripcion = txtDescripcionFiltrado.Text.ToLower();
                 List<Gasto> gastosbuscados = gastos.FindAll(g => g.Fecha.Date >= dtpDesde.Value.Date && g.Fecha.Date <= dtpHasta.Value.Date
@@ -405,7 +406,8 @@ namespace GestorGastosApp
 
         private void GuardarGastos()
         {
-            string path = "C:\\Users\\diias\\OneDrive\\Documentos\\listaAlumnos\\Gastos.txt";
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "gastos.txt");
+
             FileInfo fi = new FileInfo(path);
 
             StreamWriter sw = new StreamWriter(path);
